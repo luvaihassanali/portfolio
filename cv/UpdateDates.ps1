@@ -1,0 +1,53 @@
+$StartDate = [DateTime]'2021-10-01'
+$today = Get-Date
+
+$yeardiff = $today.year - $StartDate.year
+If($yeardiff -gt 0 -And $StartDate.month -gt $today.month -And $StartDate.day -gt $today.day) { 
+    $yeardiff = $yeardiff -1 
+}
+    
+$monthdiff = $today.month - $StartDate.month + ($yeardiff * 12)
+If($StartDate.day -gt $today.day) { $monthdiff = $monthdiff -1 }
+    
+$newDateString = ""
+
+if ($monthdiff -ge 12) {
+	$year = [math]::Round($monthdiff / 12)
+	$newDateString = $monthdiff % 12
+	if ($newDateString -eq 0) {
+		if ($year -gt 1) {
+			$newDateString = "$year yrs"
+		} else {
+			$newDateString = "$year yr"
+		}
+	} else {
+		if ($year -gt 1) {
+			if ($newDateString -gt 1) {
+				$newDateString = "$year yrs $newDateString mos"
+			} else {
+				$newDateString = "$year yrs $newDateString mo"
+			}
+		} else {
+			if ($newDateString -gt 1) {
+				$newDateString = "$year yr $newDateString mos"
+			} else {
+				$newDateString = "$year yr $newDateString mo"
+			}
+		}
+	}
+} else {
+	$newDateString = "$monthdiff mos"
+}
+
+$formatDateString = 'Present (' + $newDateString + ')'
+$prevString = Get-Content -Path .\cv\prevDate.txt -TotalCount -1
+(Get-Content -path .\cv\resume.html -Raw).TrimEnd() -replace $prevString, $formatDateString | Set-Content -Path .\cv\resume.html
+Write-Host $formatDateString.TrimEnd();
+
+$outputDateString = 'Present \(' + $newDateString + '\)'
+Set-Content -Path .\cv\prevDate.txt -Value $outputDateString
+
+git add .
+$commitMsg = "Update month " + (Get-Date).ToString("u")
+git commit -m $commitMsg
+git push -u origin main
