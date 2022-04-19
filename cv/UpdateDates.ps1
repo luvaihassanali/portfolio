@@ -40,9 +40,9 @@ if ($monthdiff -ge 12) {
 }
 
 $formatDateString = 'Present (' + $newDateString + ')'
-$prevString = Get-Content -Path .\cv\prevDate.txt -TotalCount -1
-(Get-Content -path .\cv\resume.html -Raw).TrimEnd() -replace $prevString, $formatDateString | Set-Content -Path .\cv\resume.html
-Write-Host $formatDateString.TrimEnd();
+[regex]$prevString = Get-Content -Path .\cv\prevDate.txt -TotalCount -1
+$editString = (Get-Content -path .\cv\cv.html -Raw).TrimEnd()
+$prevString.replace($editString, $formatDateString, 1) | Set-Content -Path .\cv\cv.html
 
 $outputDateString = 'Present \(' + $newDateString + '\)'
 Set-Content -Path .\cv\prevDate.txt -Value $outputDateString
