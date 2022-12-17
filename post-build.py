@@ -5,7 +5,7 @@ from pathlib import Path
 
 root = sys.argv[1]
 os.chdir(root)
-os.rename('assets/js/script.min.js', 'assets/js/index.js')
+#os.rename('assets/js/script.min.js', 'assets/js/index.js')
 
 file = Path('index.html')
 file.write_text(file.read_text().replace('<source src=', '<source data-src='))
