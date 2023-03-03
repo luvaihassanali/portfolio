@@ -24,3 +24,7 @@ jobs:
           git config --global user.name 'Luvai Hassanali'
           git config --global user.email 'luvaihassanali@gmail.com'
           .\cv\UpdateDates.ps1
+          git add .
+          $commitMsg = "Update month " + (Get-Date).ToString("u")
+          git commit -m $commitMsg
+          git push -u origin main
