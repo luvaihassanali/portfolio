@@ -43,11 +43,5 @@ $formatDateString = 'Present (' + $newDateString + ')'
 [regex]$prevString = Get-Content -Path .\cv\prevDate.txt -TotalCount -1
 $editString = (Get-Content -path .\cv\cv.html -Raw).TrimEnd()
 $prevString.replace($editString, $formatDateString, 1) | Set-Content -Path .\cv\cv.html
-
 $outputDateString = 'Present \(' + $newDateString + '\)'
 Set-Content -Path .\cv\prevDate.txt -Value $outputDateString
-
-git add .
-$commitMsg = "Update month " + (Get-Date).ToString("u")
-git commit -m $commitMsg
-git push -u origin main
