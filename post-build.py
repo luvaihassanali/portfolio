@@ -3,7 +3,7 @@ import os
 import sys
 from pathlib import Path
 
-root = sys.argv[1]
+root = os.getcwd()
 os.chdir(root)
 
 file = Path('index.html')
