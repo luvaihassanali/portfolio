@@ -85,7 +85,37 @@
                 <div class="row">
                     <div class="col img-col"><img width="32" height="32" src="../assets/img/cv/canada.jpg"></div>
                     <div class="col">
-                        <p class="mb-0"><span class="float-end date">Sep. 2022 – Present (7 mos)</span>Global Affairs Canada (GAC)</p>
+                        <p class="mb-0"><span id="currentTimespan" class="float-end date">Sep. 2022 – Present (2 yrs 2 mos)</span><script>
+  // Function to calculate the time span
+  function updateTimespan() {
+    const startDate = new Date(2022, 8); // September 2022 (months are 0-indexed, so 8 is September)
+    const currentDate = new Date();
+
+    let years = currentDate.getFullYear() - startDate.getFullYear();
+    let months = currentDate.getMonth() - startDate.getMonth();
+
+    if (months < 0) {
+      years--;
+      months += 12;
+    }
+    
+    // Add 1 to months to include the current month (LinkedIn style)
+    months++;
+
+    // If months exceed 12, adjust years and months
+    if (months === 12) {
+      months = 0;
+      years++;
+    }
+
+    const timespanElement = document.getElementById("currentTimespan");
+    timespanElement.innerHTML = `Sep. 2022 – Present (${years} yr${years !== 1 ? 's' : ''} ${months} mo${months !== 1 ? 's' : ''})`;
+    console.log(timespanElement.innerHTML);  
+  }
+
+  // Call the function to update the timespan
+  updateTimespan();
+</script>Global Affairs Canada (GAC)</p>
                         <h6><strong>Technical Advisor</strong></h6>
                     </div>
                 </div>
