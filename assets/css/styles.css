@@ -14,7 +14,7 @@ h1 {
 
 .img-col {
   flex: 0 0 auto;
-  width: 4.7%;
+  width: 6.66%;
   margin-top: 0.25rem !important;
 }
 
@@ -545,5 +545,9 @@ ulc li:hover:nth-child(2) a:after {
 
 .text-gray {
   color: rgb(85,85,85) !important;
+}
+
+.list-no-left-pad {
+  padding: 0rem !important;
 }
 
