@@ -1,47 +1,34 @@
-$StartDate = [DateTime]'2022-09-01'
-$today = Get-Date
+# Refreshes the static "Present (N yrs M mos)" text of #currentTimespan in cv.html,
+# so the CV reads correctly without JavaScript. The inline script next to the span
+# applies the same rule in the browser; both read the start month from data-start.
 
-$yeardiff = $today.year - $StartDate.year
-If($yeardiff -gt 0 -And $StartDate.month -gt $today.month -And $StartDate.day -gt $today.day) { 
-    $yeardiff = $yeardiff -1 
+$path = Join-Path $PSScriptRoot 'cv.html'
+$html = [IO.File]::ReadAllText($path)
+
+$pattern = '(<span id="currentTimespan"[^>]*data-start="(\d{4})-(\d{2})"[^>]*>[^<]*\()[^)]*(\)</span>)'
+$match = [regex]::Match($html, $pattern)
+if (-not $match.Success) {
+    throw "Couldn't find the #currentTimespan span with a data-start attribute in $path"
 }
-    
-$monthdiff = $today.month - $StartDate.month + ($yeardiff * 12)
-If($StartDate.day -gt $today.day) { $monthdiff = $monthdiff -1 }
-    
-$newDateString = ""
 
-if ($monthdiff -ge 12) {
-	$year = [math]::Round($monthdiff / 12)
-	$newDateString = $monthdiff % 12
-	if ($newDateString -eq 0) {
-		if ($year -gt 1) {
-			$newDateString = "$year yrs"
-		} else {
-			$newDateString = "$year yr"
-		}
-	} else {
-		if ($year -gt 1) {
-			if ($newDateString -gt 1) {
-				$newDateString = "$year yrs $newDateString mos"
-			} else {
-				$newDateString = "$year yrs $newDateString mo"
-			}
-		} else {
-			if ($newDateString -gt 1) {
-				$newDateString = "$year yr $newDateString mos"
-			} else {
-				$newDateString = "$year yr $newDateString mo"
-			}
-		}
-	}
+# Count the current month too (LinkedIn style)
+$now = Get-Date
+$total = ($now.Year - [int]$match.Groups[2].Value) * 12 + ($now.Month - [int]$match.Groups[3].Value) + 1
+$years = [math]::Floor($total / 12)
+$months = $total % 12
+
+$parts = @()
+if ($years -gt 0) { $parts += "$years yr" + $(if ($years -ne 1) { 's' } else { '' }) }
+if ($months -gt 0) { $parts += "$months mo" + $(if ($months -ne 1) { 's' } else { '' }) }
+$duration = $parts -join ' '
+
+$updated = $html.Substring(0, $match.Index) +
+    $match.Groups[1].Value + $duration + $match.Groups[4].Value +
+    $html.Substring($match.Index + $match.Length)
+
+if ($updated -ceq $html) {
+    Write-Output "Already current: $duration"
 } else {
-	$newDateString = "$monthdiff mos"
+    [IO.File]::WriteAllText($path, $updated, [Text.UTF8Encoding]::new($false))
+    Write-Output "Updated to: $duration"
 }
-
-$formatDateString = 'Present (' + $newDateString + ')'
-[regex]$prevString = Get-Content -Path .\cv\prevDate.txt -TotalCount -1
-$editString = (Get-Content -path .\cv\cv.html -Raw).TrimEnd()
-$prevString.replace($editString, $formatDateString, 1) | Set-Content -Path .\cv\cv.html
-$outputDateString = 'Present \(' + $newDateString + '\)'
-Set-Content -Path .\cv\prevDate.txt -Value $outputDateString

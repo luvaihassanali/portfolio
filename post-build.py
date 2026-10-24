@@ -20,7 +20,7 @@ file.write_text(file.read_text().replace('<script src="../assets/js/index.js"></
 #</head>''', '</script></head>'))
 
 
-file = Path('C:\\Users\\luv\\source\\repos\\portfolio\\cv\\cv1.html')
-file.write_text(file.read_text().replace('<script src="../assets/js/index.js"></script>', ''))
+#file = Path('C:\\Users\\luv\\source\\repos\\portfolio\\cv\\cv1.html')
+#file.write_text(file.read_text().replace('<script src="../assets/js/index.js"></script>', ''))
 #file.write_text(file.read_text().replace('''</script>
 #</head>''', '</script></head>'))
