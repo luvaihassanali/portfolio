@@ -1,3 +1,6 @@
 .DS_Store
 Thumbs.db
 desktop.ini
+
+# Local before/after copy for comparing the CV visually (not published)
+cv/cv-before.html
