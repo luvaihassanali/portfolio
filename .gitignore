@@ -1,3 +1,9 @@
 .DS_Store
 Thumbs.db
 desktop.ini
+
+# Claude Code: personal settings and notes (shared project config in .claude/ stays tracked)
+.claude/settings.local.json
+CLAUDE.local.md
+CLAUDE.md
+.claude
