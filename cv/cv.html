@@ -76,7 +76,7 @@
         <div class="row">
             <div class="col">
                 <h5>Summary</h5>
-                <p>IT professional with 7+ years in the Government of Canada and defence sectors, currently a Technical Advisor (IT-03) at Global Affairs Canada. Technical lead for the department's enterprise identity platform (Azure AD B2C, federated with the GC Credential Federation (GCCF / GCKey) and CanadaLogin over OpenID Connect), including its migration off ForgeRock, and for its Power Platform service. Advise the Director and Deputy Director on architecture, security and licensing, including a licensing change that saves $3M a year, and work with Shared Services Canada (SSC), Microsoft and partner departments to keep critical services running for 50,000+ users.</p>
+                <p>IT professional with 7+ years in the Government of Canada and defence sectors, currently a Technical Advisor (IT-03) at Global Affairs Canada. Technical lead for the department's Azure AD B2C identity platform, including its migration off ForgeRock, and for its Power Platform service. Advise the Director and Deputy Director on architecture, security and licensing, including a licensing change that saves $3M a year, and work with Shared Services Canada (SSC), Microsoft and partner departments to keep critical services running for 50,000+ users.</p>
                 <p><strong>Security clearance:</strong> Secret</p>
             </div>
         </div>
@@ -113,17 +113,18 @@
                 <div class="row">
                     <div class="col">
                         <ul>
-                            <li>Advise the Director, the Deputy Director and the Business Relationship Management team on identity, cloud-platform architecture, licensing and security risk. Prepared the options analysis for moving Azure AD B2C to Entra External ID (deadlines, sequencing, trade-offs), which led the department to prioritize CanadaLogin and defer the B2C migration</li>
+                            <li>Advise the Director, the Deputy Director and the Business Relationship Management team on identity, cloud-platform architecture, licensing and security risk</li>
+                            <li>Prepared the options analysis for moving Azure AD B2C to Entra External ID (deadlines, sequencing, trade-offs), which led the department to prioritize CanadaLogin and defer the migration</li>
                             <li>Recommended and carried out a licensing change that moved 5,000 users from $60 Case Management to $10 Power Apps Premium licences (per user per month), saving $3M a year</li>
-                            <li>Represent GAC to SSC, Microsoft, the GCCF / CanadaLogin service and vendors. Authorized technical representative to the GCKey, Interac and CanadaLogin Level 2 (technical) service desks</li>
+                            <li>Represent GAC to SSC, Microsoft, the GC Credential Federation (GCCF), CanadaLogin and vendors. Authorized technical representative to the GCKey, Interac and CanadaLogin Level 2 (technical) service desks</li>
                             <li>Liaison to the Enterprise Architecture committee, the Cloud First Initiative and the Technical Working Group. Maintain the Power Platform Authority to Operate (ATO) documentation and guide development teams through their ATOs</li>
                             <li>Acting Deputy Director (IT-04) for 2 months in 2024 (January and September): oversaw daily operations and a team of 8 and handled senior-management requests with no disruption to operations or timelines</li>
                         </ul>
                         <h6>Identity and Access Management: ForgeRock Enterprise Access Management (EAM) to Azure AD B2C<br></h6>
                         <ul>
-                            <li>Technical lead for moving 5 applications and 50,000+ users, including SSC critical applications (<a href="https://www.neics-nscei.canada.ca/" target="_blank">NEICS</a>, <a href="https://www.nexcol-nceel.canada.ca/" target="_blank">New EXCOL</a>), off the on-premises ForgeRock EAM platform to Azure AD B2C. Met the May 2025 decommissioning deadline, saving $300k a year in licences and avoiding ~$1M in server upgrades</li>
-                            <li>Designed the Azure AD B2C architecture: 5 tenants behind Azure Front Door, federated with GCCF (GCKey / Sign-In Partner) and CanadaLogin over OpenID Connect, serving 10 applications (5 web applications and 5 Power Pages sites)</li>
-                            <li>Built and maintain a policy-as-code repository and reference implementation (custom policies templated per tenant, a hardened ASP.NET reference application and 5 onboarding guides) used by 8 application teams, including all 5 EAM migrations and GAC's first CanadaLogin application</li>
+                            <li>Technical lead for moving 5 applications (including SSC's <a href="https://www.neics-nscei.canada.ca/" target="_blank">NEICS</a> and <a href="https://www.nexcol-nceel.canada.ca/" target="_blank">New EXCOL</a>) and 50,000+ users off ForgeRock EAM to Azure AD B2C, meeting the May 2025 decommissioning deadline. Saves $300K a year in licences and avoided ~$1M in server upgrades</li>
+                            <li>Designed the Azure AD B2C architecture: 5 tenants behind Azure Front Door, federated with GCCF (GCKey / Sign-In Partner) and CanadaLogin over OpenID Connect, serving 10 applications (5 web, 5 Power Pages)</li>
+                            <li>Built and maintain a policy-as-code repository and reference implementation (per-tenant policy templates, a hardened ASP.NET reference app, 5 onboarding guides) used by 8 application teams, including GAC's first CanadaLogin application</li>
                             <li>Own production releases of the B2C custom policies: reproducible builds, regression checks, and safeguards that keep existing users matched to their accounts</li>
                             <li>Applied privacy by design: minimized personal information in tokens and the directory, documented the pseudonymous trust model for client teams, and drafted GAC's response to the CanadaLogin provider's privacy review</li>
                             <li>Ran the dual-data-centre EAM platform (F5, VMware) with 100% availability outside maintenance windows for 2+ years: monthly patching with IT Security, certificate lifecycle, the LDAP export for the migration, and decommissioning</li>
@@ -133,7 +134,7 @@
                         <ul>
                             <li>Technical lead for the department's Power Platform (~600 environments, 200+ Power Pages sites): onboarded 10+ client projects with architecture reviews, application lifecycle management (ALM) and security constraints. Single point of contact for Microsoft support</li>
                             <li>Co-developed and maintain the platform's operating standards and Zero Trust baseline: deny-by-default data loss prevention (DLP), just-in-time privileged access (PIM), audit logging to Microsoft Sentinel, and production change control</li>
-                            <li>Built a PowerShell admin toolkit that automates environment provisioning, DLP and security baselines, saving ~20 minutes per environment and applying controls the same way every time. Wrote PowerShell for Azure DevOps release pipelines (Power Apps, on-premises Dynamics 365)</li>
+                            <li>Built a PowerShell admin toolkit that automates environment provisioning, DLP and security baselines, saving ~20 minutes per environment and applying controls consistently. Wrote PowerShell for Azure DevOps release pipelines</li>
                             <li>Built a Power BI governance report for management covering environments, app and connector usage, DLP, Power Pages compliance (public sites missing the required IP restrictions) and premium-licence utilization, identifying ~4,000 under-used licences</li>
                             <li>Wrote the team's operations runbook (37 procedures) and trained 2 analysts to administer the platform</li>
                             <li>Co-lead the department's citizen-development program: onboarding, training, documentation and monitoring, within governance and compliance standards</li>
@@ -151,15 +152,12 @@
                 <div class="row">
                     <div class="col">
                         <ul>
-                            <li>Led a team of 5 to develop and release a workspace booking app for the COVID-19 hybrid work model, used through the first months of the return to the office to reduce booking conflicts</li>
-                            <li>Administered 200+ Power Platform environments (Power Apps, Power Automate, Power Apps portals, Power Virtual Agents) and built a .NET application on the platform APIs that sped up environment provisioning and maintenance</li>
-                            <li>Delegated Microsoft Tier 0 administrator for GAC, working from a Privileged Access Workstation (PAW) to administer Azure components to IT Security standards</li>
-                            <li>Wrote PowerShell scripts to automate and track Azure AD Privileged Identity Management (PIM) role activations, eliminating interruptions from expired roles</li>
-                            <li>Assigned and tracked licences for 5,000+ Azure AD accounts (administrators, developers and end users) across Power Platform projects</li>
-                            <li>Led the takeover of the Legal Affairs Bureau's JLD LDB Dynamics 365 solution: resolved all outstanding defects and provided post-release support with no service interruption. Worked with SSC to release the update to the <a href="https://treaty-accord.gc.ca" target="_blank">Treaties</a> site (the JLD LDB front end)</li>
-                            <li>Developed SWORD (Security Work Orders and Recommendations Documentation), a Power Apps model-driven app that automated the IT Security team's manual case tracking</li>
-                            <li>Installed and configured the Microsoft Center of Excellence Starter Kit, giving management visibility into Power Platform usage and reducing troubleshooting time</li>
-                            <li>Resolved Power Platform operational issues with developers and Microsoft support engineers to minimize incident response time and business impact</li>
+                            <li>Led a team of 5 to build and release a workspace booking app for the COVID-19 return to the office, reducing booking conflicts</li>
+                            <li>Administered 200+ Power Platform environments (Power Apps, Power Automate, Power Apps portals, Power Virtual Agents) and licences for 5,000+ Azure AD accounts. Built a .NET application on the platform APIs that sped up environment provisioning</li>
+                            <li>Delegated Microsoft Tier 0 administrator for GAC, working from a Privileged Access Workstation (PAW) to IT Security standards. Automated Privileged Identity Management (PIM) role activations in PowerShell</li>
+                            <li>Led the takeover of the Legal Affairs Bureau's Dynamics 365 treaty solution: resolved all outstanding defects and, with SSC, released the update to the <a href="https://treaty-accord.gc.ca" target="_blank">Treaties</a> site with no service interruption</li>
+                            <li>Developed a Power Apps model-driven app that automated the IT Security team's manual case tracking (SWORD)</li>
+                            <li>Installed and configured the Microsoft Center of Excellence (CoE) Starter Kit, giving management visibility into Power Platform usage and reducing troubleshooting time</li>
                         </ul>
                     </div>
                 </div>
@@ -175,14 +173,10 @@
                         <ul>
                             <li>Designed and built a performance-testing system for the legacy and new friendly-force tracking applications. Its data led senior management to halt development of the new software and not deploy it</li>
                             <li>Resolved a critical bug in a NATO legacy friendly-force tracking application in the Canadian military's Tactical System Integration Laboratory (TSIL), working with NATO partners in 3 countries, so Canada could continue testing during an international event</li>
-                            <li>Contributed to the Friendly Forces Tracking Gateway (FFTgw), a WCF service that securely relays friendly unit locations to NATO partners in line with NATO protocols (IP1, WSMP, A-DATP-36)</li>
+                            <li>Contributed to the Friendly Forces Tracking Gateway, a WCF service that securely relays friendly unit locations to NATO partners over NATO-standard protocols</li>
                             <li>Analyzed proposed solutions with the client and stakeholders (e.g. SQL to CouchDB migration, CBRN warning reliability) in a high-security military environment, informing decisions on security, performance and reliability</li>
-                            <li>Led the migration of the codebase from TFS to Git and of the application installers from Visual Studio Installer Projects to the WiX Toolset, removing the old solution's dependency issues for developers and the packaging team</li>
-                            <li>Developed a patch for ArcGIS 9.3.1 that made the legacy&nbsp;<a href="https://proceedings.esri.com/library/userconf/proc07/papers/papers/pap_1414.pdf" target="_blank">BattleView</a>&nbsp;software compatible with Windows 10, extending its life by years and avoiding a full refactor or a costly COTS purchase</li>
-                            <li>Implemented features, defect fixes and component deprecations in BattleView (a 10+ year-old codebase) and helped new developers ramp up on it</li>
-                            <li>Designed GitLab CI/CD pipelines with the DevOps team (PowerShell scripts, YAML templates), cutting deployment time by hours, and trained developers to use them</li>
-                            <li>Built a stopgap VBScript versioning system for MSI installers whose version format (e.g. 2.7.1.60028) Visual Studio didn't support, saving thousands in licences for third-party tools such as Advanced Installer</li>
-                            <li>Worked in SAFe across multiple teams (50+ developers): planning, backlog grooming, sprint reviews, and user stories with story points, tracked in IBM RTC and Jira</li>
+                            <li>Led the move from TFS to Git and from Visual Studio Installer Projects to the WiX Toolset, and designed GitLab CI/CD pipelines with the DevOps team, then trained developers to use them</li>
+                            <li>Developed a patch for ArcGIS 9.3.1 that kept the legacy&nbsp;<a href="https://proceedings.esri.com/library/userconf/proc07/papers/papers/pap_1414.pdf" target="_blank">BattleView</a>&nbsp;software running on Windows 10, avoiding a full refactor or a costly COTS purchase</li>
                         </ul>
                     </div>
                 </div>
